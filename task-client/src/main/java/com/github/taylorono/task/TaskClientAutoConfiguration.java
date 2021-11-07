@@ -21,9 +21,9 @@ public class TaskClientAutoConfiguration {
 
     @Bean
     public TaskClient taskClient(
-            @Qualifier("taskClientRestTemplate") RestTemplate taylorStarterServiceRestTemplate,
+            @Qualifier("taskClientRestTemplate") RestTemplate taskServiceRestTemplate,
             @NotEmpty(message = "task-service.url is required") @Value("${task-service.url}") String serviceUrl) {
-        return new TaskClient(taylorStarterServiceRestTemplate, serviceUrl);
+        return new TaskClient(taskServiceRestTemplate, serviceUrl);
     }
 
     @Bean(name = "taskClientRestTemplate")
